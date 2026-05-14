@@ -55,7 +55,6 @@
             padding: 0;
         }
 
-        /* Particle canvas */
         #particleCanvas {
             position: fixed;
             top: 0;
@@ -100,7 +99,7 @@
             font-weight: 700;
         }
 
-        /* ===== PAGE LOADER (integrated) ===== */
+        /* Page loader */
         #page-loader {
             position: fixed;
             top: 0; left: 0;
@@ -118,11 +117,10 @@
             visibility: hidden;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* Navbar */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             z-index: 1000;
             padding: 1rem 2rem;
@@ -185,153 +183,8 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        .nav-cta {
-            background: var(--primary);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(108,92,231,0.3);
-            display: inline-block;
-        }
-        .nav-cta:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,206,201,0.4);
-        }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            z-index: 1001;
-        }
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: var(--primary-dark);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        /* ===== HERO with glowing orbs ===== */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f0edff 0%, #e8fcfc 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 8rem 2rem 6rem;
-            z-index: 1;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float-orb 8s ease-in-out infinite;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 206, 201, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float-orb 10s ease-in-out infinite reverse;
-        }
-        @keyframes float-orb {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(30px, -20px); }
-            66% { transform: translate(-20px, 15px); }
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 850px;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            color: var(--primary);
-            padding: 0.5rem 1.3rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        .hero h1 {
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-        .hero p {
-            color: #444;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== BUTTONS (integrated gradient button for CTAs) ===== */
-        .btn {
-            display: inline-block;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            border: none;
-            transition: var(--transition);
-            letter-spacing: 0.02em;
-        }
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 8px 25px rgba(108,92,231,0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background: var(--accent);
-            box-shadow: 0 12px 30px rgba(0,206,201,0.4);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: 0 4px 15px rgba(108,92,231,0.1);
-        }
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(108,92,231,0.3);
-        }
-
-        /* Gradient button wrapper (used on nav-cta and hero CTA) */
+        /* Gradient button wrapper (used for nav & hero CTAs) */
         .btn-wrapper {
             --rad: 32px;
             --color-wrapper-border: #fff;
@@ -354,14 +207,15 @@
             border: 2px solid var(--color-wrapper-border);
             border-radius: var(--rad);
             font-family: "Inter", sans-serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             filter: saturate(0.65) brightness(1.8);
+            vertical-align: middle;
         }
         .btn-wrapper .gradient-btn {
             position: relative;
             z-index: -1;
-            padding: 0.75rem 2rem;
+            padding: 0.65rem 1.8rem;
             border: none;
             border-radius: var(--rad);
             font-family: inherit;
@@ -382,10 +236,8 @@
             content: "";
             position: absolute;
             pointer-events: none;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
             border-radius: var(--rad);
             mix-blend-mode: difference;
             z-index: 1;
@@ -411,7 +263,7 @@
             position: absolute;
             pointer-events: none;
             z-index: 2;
-            padding: 0.75rem 2rem;
+            padding: 0.65rem 1.8rem;
             border-radius: var(--rad);
             font-family: inherit;
             font-size: inherit;
@@ -458,7 +310,112 @@
             50% { opacity: 0.5; }
         }
 
-        /* ===== SECTIONS ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-dark);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0edff 0%, #e8fcfc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 6rem;
+            z-index: 1;
+        }
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            animation: float-orb 8s ease-in-out infinite;
+        }
+        .hero::before {
+            top: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 70%);
+        }
+        .hero::after {
+            bottom: -20%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0, 206, 201, 0.12) 0%, transparent 70%);
+            animation: float-orb 10s ease-in-out infinite reverse;
+        }
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -20px); }
+            66% { transform: translate(-20px, 15px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            color: var(--primary);
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        .hero h1 { color: var(--dark); margin-bottom: 1.5rem; }
+        .hero p { color: #444; font-size: 1.2rem; max-width: 600px; margin: 0 auto 2.5rem; }
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            transition: var(--transition);
+            letter-spacing: 0.02em;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(108,92,231,0.1);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108,92,231,0.3);
+        }
+
+        /* Sections */
         section {
             padding: 6rem 2rem;
             position: relative;
@@ -480,10 +437,8 @@
             margin-bottom: 1rem;
         }
 
-        /* ===== CARDS (glass + blob background) ===== */
-        .features-grid,
-        .services-grid,
-        .testimonials-grid {
+        /* Cards with blob */
+        .features-grid, .services-grid, .testimonials-grid {
             display: grid;
             gap: 2rem;
             max-width: 1200px;
@@ -493,9 +448,7 @@
         .services-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 
-        .feature-card,
-        .service-card,
-        .testimonial-card {
+        .feature-card, .service-card, .testimonial-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
@@ -509,20 +462,15 @@
             position: relative;
             overflow: hidden;
         }
-        .feature-card:hover,
-        .service-card:hover,
-        .testimonial-card:hover {
+        .feature-card:hover, .service-card:hover, .testimonial-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
 
-        /* Card blob (integrated behind content) */
         .card-blob {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
+            top: 50%; left: 50%;
+            width: 150px; height: 150px;
             border-radius: 50%;
             background: var(--primary);
             filter: blur(20px);
@@ -545,40 +493,19 @@
             z-index: 1;
         }
 
-        .feature-icon,
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .testimonial-card .quote {
-            font-size: 3rem;
-            color: var(--primary-light);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .testimonial-card p {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .feature-icon, .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .testimonial-card .quote { font-size: 3rem; color: var(--primary-light); }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
         .testimonial-author .avatar {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             border-radius: 50%;
             background: var(--primary);
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-weight: 700;
         }
 
-        /* ===== ABOUT ===== */
+        /* About */
         .about-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -592,68 +519,28 @@
             border-radius: var(--radius-xl);
             height: 400px;
             position: relative;
-            overflow: hidden;
         }
         .about-image .placeholder-pattern {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5rem;
-            font-weight: 800;
-            font-family: var(--font-hand);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 5rem; font-family: var(--font-hand);
         }
-        .stats-row {
-            display: flex;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-        .stat h3 {
-            font-size: 2.2rem;
-            color: var(--primary);
-        }
-        .stat span {
-            color: #888;
-            font-size: 0.9rem;
-        }
+        .stats-row { display: flex; gap: 2.5rem; margin-top: 2rem; }
+        .stat h3 { font-size: 2.2rem; color: var(--primary); }
+        .stat span { color: #888; font-size: 0.9rem; }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
+        /* ===== CONTACT BUTTONS (Instagram-style for all) ===== */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            max-width: 900px;
             margin: 0 auto;
         }
-        .contact-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.25s, box-shadow 0.3s;
-            position: relative;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(108,92,231,0.1);
-        }
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .contact-card a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Instagram tooltip */
+        /* Tooltip container shared */
         .tooltip-container {
             position: relative;
             cursor: pointer;
@@ -661,7 +548,6 @@
             font-size: 17px;
             border-radius: 10px;
             display: inline-block;
-            margin-top: 0.5rem;
         }
         .tooltip {
             position: absolute;
@@ -673,21 +559,41 @@
             pointer-events: none;
             transition: all 0.3s;
             border-radius: 15px;
-            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+            box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2), inset -5px -5px 15px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.3), -5px -5px 15px rgba(255,255,255,0.1);
             z-index: 20;
+            white-space: nowrap;
+        }
+        .tooltip-container:hover .tooltip {
+            top: -130px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
         .profile {
             background: #2a2b2f;
             border-radius: 10px 15px;
             padding: 10px;
             border: 1px solid #52382f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .tooltip-container:hover .tooltip {
-            top: -150px;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
+        .profile .small-icon {
+            font-size: 24px;
+            width: 40px;
+            text-align: center;
         }
+        .profile .info-text {
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .profile .handle {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Icon button */
         .icon {
             text-decoration: none;
             color: #fff;
@@ -711,12 +617,8 @@
             border-radius: 15px;
             transition: all 0.3s;
         }
-        .layer span, .text {
-            color: #e6683c;
-            border-color: #e6683c;
-        }
-        .icon:hover.layer span {
-            box-shadow: -1px 1px 3px #e6683c;
+        .icon:hover .layer span {
+            box-shadow: -1px 1px 3px currentColor;
         }
         .icon .text {
             position: absolute;
@@ -726,6 +628,8 @@
             font-weight: 500;
             transform: translateX(-50%);
             transition: bottom 0.3s ease, opacity 0.3s ease;
+            white-space: nowrap;
+            font-size: 14px;
         }
         .icon:hover .text {
             bottom: -35px;
@@ -736,30 +640,36 @@
         .icon:hover .layer span:nth-child(3) { opacity: 0.6; transform: translate(10px, -10px); }
         .icon:hover .layer span:nth-child(4) { opacity: 0.8; transform: translate(15px, -15px); }
         .icon:hover .layer span:nth-child(5) { opacity: 1; transform: translate(20px, -20px); }
-        .instagramSVG {
-            font-size: 25px;
+
+        /* Platform colors */
+        .platform-icon {
+            width: 55px; height: 55px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 28px;
+            color: white;
+        }
+        .telegram-bg { background: #0088cc; }
+        .whatsapp-bg { background: #25D366; }
+        .email-bg { background: #D44638; }
+        .instagram-bg {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            width: 55px;
-            height: 55px;
-            border-radius: 15px;
         }
-        .user { display: flex; gap: 10px; }
-        .img {
-            width: 50px; height: 50px;
-            font-size: 25px; font-weight: 700;
-            border: 1px solid #e6683c;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            background: #fff;
-        }
-        .name { font-size: 17px; font-weight: 700; color: #e6683c; }
-        .details { display: flex; flex-direction: column; gap: 0; color: #fff; }
-        .about { color: #ccc; padding-top: 5px; }
 
-        /* ===== FOOTER ===== */
+        /* Adjust text colors per platform */
+        .icon.telegram .text { color: #0088cc; }
+        .icon.whatsapp .text { color: #25D366; }
+        .icon.email .text { color: #D44638; }
+        .icon.instagram .text { color: #e6683c; }
+
+        .layer span.telegram-border { border-color: #0088cc; }
+        .layer span.whatsapp-border { border-color: #25D366; }
+        .layer span.email-border { border-color: #D44638; }
+        .layer span.instagram-border { border-color: #e6683c; }
+
+        /* Footer */
         footer {
             background: var(--dark);
             color: rgba(255,255,255,0.7);
@@ -774,22 +684,13 @@
             max-width: 1200px;
             margin: 0 auto 3rem;
         }
-        .footer-brand {
-            font-family: var(--font-hand);
-            font-size: 2rem;
-            color: white;
-        }
+        .footer-brand { font-family: var(--font-hand); font-size: 2rem; color: white; }
         .footer-col h4 { color: white; margin-bottom: 1rem; }
         .footer-col ul { list-style: none; }
         .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; transition: 0.2s; }
         .footer-col ul li a:hover { color: var(--accent); }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            text-align: center;
-        }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; }
 
-        /* Responsive */
         @media (max-width: 968px) {
             .about-wrapper { grid-template-columns: 1fr; }
             .nav-links {
@@ -802,16 +703,15 @@
             }
             .nav-links.active { right: 0; }
             .hamburger { display: flex; }
-            .tooltip-container:hover .tooltip { top: -130px; }
         }
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.2rem; }
             .stats-row { flex-direction: column; gap: 1.5rem; }
+            .contact-row { gap: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Page loader -->
     <div id="page-loader">
         <div class="loader" style="--color-one:#ffbf48; --color-two:#be4a1d; --color-three:#ffbf4780; --color-four:#bf4a1d80; --color-five:#ffbf4740; --time-animation:2s; --size:1; position:relative; border-radius:50%; width:100px; height:100px; box-shadow:0 0 25px 0 var(--color-three),0 20px 50px 0 var(--color-four); animation:colorize calc(var(--time-animation)*3) ease-in-out infinite;">
             <svg width="0" height="0">
@@ -826,12 +726,6 @@
                 </clipPath>
             </svg>
             <div class="box" style="width:100px;height:100px;background:linear-gradient(180deg,var(--color-one) 30%,var(--color-two) 70%); mask:url(#clipping); -webkit-mask:url(#clipping);"></div>
-            <style>
-                .loader::before { content: ""; position: absolute; top: 0; left: 0; width: 100px; height: 100px; border-radius: 50%; border-top: solid 1px var(--color-one); border-bottom: solid 1px var(--color-two); background: linear-gradient(180deg, var(--color-five), var(--color-four)); box-shadow: inset 0 10px 10px 0 var(--color-three), inset 0 -10px 10px 0 var(--color-four); }
-                @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                @keyframes roundness { 0% { filter: contrast(15); } 20% { filter: contrast(3); } 40% { filter: contrast(3); } 60% { filter: contrast(15); } 100% { filter: contrast(15); } }
-                @keyframes colorize { 0% { filter: hue-rotate(0deg); } 20% { filter: hue-rotate(-30deg); } 40% { filter: hue-rotate(-60deg); } 60% { filter: hue-rotate(-90deg); } 80% { filter: hue-rotate(-45deg); } 100% { filter: hue-rotate(0deg); } }
-            </style>
         </div>
     </div>
 
@@ -845,8 +739,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#contact-section">Contact</a></li>
             <li>
-                <!-- Gradient button for navbar CTA -->
-                <span class="btn-wrapper" style="font-size:0.9rem;">
+                <span class="btn-wrapper">
                     <span class="gradient-layer"></span>
                     <span class="gradient-layer"></span>
                     <a href="#contact-section" class="gradient-btn">Get Started</a>
@@ -855,9 +748,7 @@
                 </span>
             </li>
         </ul>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
     <section class="hero" id="home">
@@ -866,8 +757,7 @@
             <h1>We craft <span class="gradient-text">websites, hosting & code</span> that drive success</h1>
             <p>Curiosity delivers professional web development, reliable hosting, and custom coding — all under one roof, backed by Captain's experience.</p>
             <div class="hero-buttons">
-                <!-- Gradient button for main CTA -->
-                <span class="btn-wrapper">
+                <span class="btn-wrapper" style="font-size:1rem;">
                     <span class="gradient-layer"></span>
                     <span class="gradient-layer"></span>
                     <a href="#contact-section" class="gradient-btn">Start Your Project</a>
@@ -880,11 +770,7 @@
     </section>
 
     <section id="features">
-        <div class="section-header">
-            <span class="badge">Why Curiosity</span>
-            <h2>Everything you need to <span class="gradient-text">grow online</span></h2>
-            <p>Creative design, robust hosting, and clean code — unified for your brand.</p>
-        </div>
+        <div class="section-header"><span class="badge">Why Curiosity</span><h2>Everything you need to <span class="gradient-text">grow online</span></h2><p>Creative design, robust hosting, and clean code — unified for your brand.</p></div>
         <div class="features-grid">
             <div class="feature-card tilt-card"><div class="card-blob"></div><div class="feature-icon">🎨</div><h3>Stunning Web Design</h3><p>Beautiful, user-focused interfaces that captivate visitors.</p></div>
             <div class="feature-card tilt-card"><div class="card-blob"></div><div class="feature-icon">⚡</div><h3>Blazing Hosting</h3><p>SSD servers, 99.9% uptime, free SSL, and daily backups.</p></div>
@@ -903,21 +789,13 @@
                 <h2>Founded by <span class="gradient-text">Captain</span>, built on passion</h2>
                 <p>Curiosity started as Captain's vision — great web solutions for everyone. Today we unite designers, engineers, and coders to deliver complete digital services.</p>
                 <p>We handle every detail: hand‑crafted code, managed hosting, and ongoing support.</p>
-                <div class="stats-row">
-                    <div class="stat"><h3>500+</h3><span>Projects Launched</span></div>
-                    <div class="stat"><h3>99.9%</h3><span>Uptime</span></div>
-                    <div class="stat"><h3>24/7</h3><span>Support</span></div>
-                </div>
+                <div class="stats-row"><div class="stat"><h3>500+</h3><span>Projects Launched</span></div><div class="stat"><h3>99.9%</h3><span>Uptime</span></div><div class="stat"><h3>24/7</h3><span>Support</span></div></div>
             </div>
         </div>
     </section>
 
     <section id="services">
-        <div class="section-header">
-            <span class="badge">Services</span>
-            <h2>What we <span class="gradient-text">do best</span></h2>
-            <p>From design to deployment, we power your online presence.</p>
-        </div>
+        <div class="section-header"><span class="badge">Services</span><h2>What we <span class="gradient-text">do best</span></h2><p>From design to deployment, we power your online presence.</p></div>
         <div class="services-grid">
             <div class="service-card tilt-card"><div class="card-blob"></div><div class="service-icon">🖌️</div><h3>Website Design</h3><p>Conversion‑focused, unforgettable brand interfaces.</p></div>
             <div class="service-card tilt-card"><div class="card-blob"></div><div class="service-icon">☁️</div><h3>Web Hosting</h3><p>cPanel, free migration, lightning‑fast performance.</p></div>
@@ -934,19 +812,70 @@
             <h2>Let's build <span class="gradient-text">together</span></h2>
             <p>Reach out directly — we're ready to start your project.</p>
         </div>
-        <div class="contact-grid">
-            <div class="contact-card"><div class="contact-icon">✈️</div><h3>Telegram</h3><p><a href="https://t.me/captainpapaj1" target="_blank">@captainpapaj1</a></p></div>
-            <div class="contact-card"><div class="contact-icon">💬</div><h3>WhatsApp</h3><p><a href="https://wa.me/2250768230709" target="_blank">+225 07 68 23 07 09</a></p></div>
-            <div class="contact-card"><div class="contact-icon">✉️</div><h3>Email</h3><p><a href="mailto:papajiop11@gmail.com">papajiop11@gmail.com</a></p></div>
-            <div class="contact-card">
-                <h3 style="margin-bottom:0.5rem;">Instagram</h3>
-                <div class="tooltip-container">
-                    <div class="tooltip"><div class="profile"><div class="user"><div class="img">BM</div><div class="details"><div class="name">Bong Moder</div><div class="about">@bong_moder</div></div></div></div></div>
-                    <a href="https://instagram.com/bong_moder" target="_blank" class="icon">
-                        <div class="layer"><span></span><span></span><span></span><span></span><span></span><div class="instagramSVG"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div></div>
-                        <span class="text">Instagram</span>
-                    </a>
+        <div class="contact-row">
+            <!-- Telegram -->
+            <div class="tooltip-container">
+                <div class="tooltip">
+                    <div class="profile">
+                        <span class="small-icon">✈️</span>
+                        <div><span class="info-text">Telegram</span><br><span class="handle">@captainpapaj1</span></div>
+                    </div>
                 </div>
+                <a href="https://t.me/captainpapaj1" target="_blank" class="icon telegram">
+                    <div class="layer">
+                        <span class="telegram-border"></span><span class="telegram-border"></span><span class="telegram-border"></span><span class="telegram-border"></span><span class="telegram-border"></span>
+                        <div class="platform-icon telegram-bg">✈️</div>
+                    </div>
+                    <span class="text">Telegram</span>
+                </a>
+            </div>
+            <!-- WhatsApp -->
+            <div class="tooltip-container">
+                <div class="tooltip">
+                    <div class="profile">
+                        <span class="small-icon">💬</span>
+                        <div><span class="info-text">WhatsApp</span><br><span class="handle">+225 07 68 23 07 09</span></div>
+                    </div>
+                </div>
+                <a href="https://wa.me/2250768230709" target="_blank" class="icon whatsapp">
+                    <div class="layer">
+                        <span class="whatsapp-border"></span><span class="whatsapp-border"></span><span class="whatsapp-border"></span><span class="whatsapp-border"></span><span class="whatsapp-border"></span>
+                        <div class="platform-icon whatsapp-bg">💬</div>
+                    </div>
+                    <span class="text">WhatsApp</span>
+                </a>
+            </div>
+            <!-- Email -->
+            <div class="tooltip-container">
+                <div class="tooltip">
+                    <div class="profile">
+                        <span class="small-icon">✉️</span>
+                        <div><span class="info-text">Email</span><br><span class="handle">papajiop11@gmail.com</span></div>
+                    </div>
+                </div>
+                <a href="mailto:papajiop11@gmail.com" class="icon email">
+                    <div class="layer">
+                        <span class="email-border"></span><span class="email-border"></span><span class="email-border"></span><span class="email-border"></span><span class="email-border"></span>
+                        <div class="platform-icon email-bg">✉️</div>
+                    </div>
+                    <span class="text">Email</span>
+                </a>
+            </div>
+            <!-- Instagram -->
+            <div class="tooltip-container">
+                <div class="tooltip">
+                    <div class="profile">
+                        <span class="small-icon">📷</span>
+                        <div><span class="info-text">Instagram</span><br><span class="handle">@bong_moder</span></div>
+                    </div>
+                </div>
+                <a href="https://instagram.com/bong_moder" target="_blank" class="icon instagram">
+                    <div class="layer">
+                        <span class="instagram-border"></span><span class="instagram-border"></span><span class="instagram-border"></span><span class="instagram-border"></span><span class="instagram-border"></span>
+                        <div class="platform-icon instagram-bg">📷</div>
+                    </div>
+                    <span class="text">Instagram</span>
+                </a>
             </div>
         </div>
     </section>
@@ -962,11 +891,8 @@
 
     <script>
         (function() {
-            // Page loader hide
             window.addEventListener('load', () => {
-                setTimeout(() => {
-                    document.getElementById('page-loader').classList.add('page-loader-hidden');
-                }, 1500);
+                setTimeout(() => document.getElementById('page-loader').classList.add('page-loader-hidden'), 1500);
             });
 
             const hamburger = document.getElementById('hamburger');
@@ -982,125 +908,79 @@
                 });
             });
 
+            // Tilt cards
             const tiltCards = document.querySelectorAll('.tilt-card');
             tiltCards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -6;
-                    const rotateY = ((x - centerX) / centerX) * 6;
+                    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+                    const rotateX = ((y - rect.height/2) / (rect.height/2)) * -6;
+                    const rotateY = ((x - rect.width/2) / (rect.width/2)) * 6;
                     card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                 });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
-                });
+                card.addEventListener('mouseleave', () => card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)');
                 card.addEventListener('touchmove', (e) => {
                     e.preventDefault();
                     const rect = card.getBoundingClientRect();
                     const touch = e.touches[0];
-                    const x = touch.clientX - rect.left;
-                    const y = touch.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -6;
-                    const rotateY = ((x - centerX) / centerX) * 6;
+                    const x = touch.clientX - rect.left, y = touch.clientY - rect.top;
+                    const rotateX = ((y - rect.height/2) / (rect.height/2)) * -6;
+                    const rotateY = ((x - rect.width/2) / (rect.width/2)) * 6;
                     card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                 }, {passive: false});
-                card.addEventListener('touchend', () => {
-                    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
-                });
+                card.addEventListener('touchend', () => card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)');
             });
 
+            // Moisture particles
             const canvas = document.getElementById('particleCanvas');
             const ctx = canvas.getContext('2d');
-            let width, height;
-            let mouseX = 0, mouseY = 0;
-            const particles = [];
-            const maxParticles = 90;
-            const particleLife = 90;
-
+            let width, height, mouseX = 0, mouseY = 0;
+            const particles = [], maxParticles = 90, particleLife = 90;
             class DustParticle {
                 constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
+                    this.x = x; this.y = y;
                     this.vx = (Math.random() - 0.5) * 0.8;
                     this.vy = (Math.random() - 0.5) * 0.8;
                     this.life = particleLife + Math.random() * 50;
                     this.maxLife = this.life;
                     this.radius = Math.random() * 2.5 + 1;
-                    const colorChoice = Math.random();
-                    this.color = colorChoice < 0.5 ? '108, 92, 231' : '0, 206, 201';
+                    this.color = Math.random() < 0.5 ? '108, 92, 231' : '0, 206, 201';
                 }
                 update(mx, my) {
-                    const dx = mx - this.x;
-                    const dy = my - this.y;
-                    const dist = Math.sqrt(dx*dx+dy*dy) || 1;
-                    const force = 0.012;
-                    this.vx += (dx / dist) * force;
-                    this.vy += (dy / dist) * force;
-                    this.vx *= 0.99;
-                    this.vy *= 0.99;
-                    this.x += this.vx;
-                    this.y += this.vy;
+                    const dx = mx - this.x, dy = my - this.y, dist = Math.sqrt(dx*dx+dy*dy) || 1;
+                    this.vx += (dx / dist) * 0.012;
+                    this.vy += (dy / dist) * 0.012;
+                    this.vx *= 0.99; this.vy *= 0.99;
+                    this.x += this.vx; this.y += this.vy;
                     this.life--;
                     return this.life > 0;
                 }
                 draw(ctx) {
-                    const lifeRatio = this.life / this.maxLife;
-                    const alpha = Math.min(lifeRatio * 1.2, 0.7);
+                    const alpha = Math.min(this.life / this.maxLife * 1.2, 0.7);
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
                     ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
                     ctx.fill();
                 }
             }
-
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-            window.addEventListener('touchmove', (e) => {
-                if (e.touches.length > 0) {
-                    mouseX = e.touches[0].clientX;
-                    mouseY = e.touches[0].clientY;
-                }
-            }, {passive: true});
-
-            function spawnParticle() {
-                if (particles.length < maxParticles) {
-                    const edge = Math.random();
-                    let x, y;
-                    if (edge < 0.25) { x = -10; y = Math.random() * height; }
-                    else if (edge < 0.5) { x = width + 10; y = Math.random() * height; }
-                    else if (edge < 0.75) { x = Math.random() * width; y = -10; }
-                    else { x = Math.random() * width; y = height + 10; }
-                    particles.push(new DustParticle(x, y));
+            function resize() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
+            window.addEventListener('resize', resize); resize();
+            window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+            window.addEventListener('touchmove', e => { if(e.touches[0]) { mouseX = e.touches[0].clientX; mouseY = e.touches[0].clientY; } }, {passive: true});
+            function spawn() {
+                if(particles.length < maxParticles) {
+                    let x, y, edge = Math.random();
+                    if(edge<0.25) { x=-10; y=Math.random()*height; }
+                    else if(edge<0.5) { x=width+10; y=Math.random()*height; }
+                    else if(edge<0.75) { x=Math.random()*width; y=-10; }
+                    else { x=Math.random()*width; y=height+10; }
+                    particles.push(new DustParticle(x,y));
                 }
             }
-
             function animate() {
-                ctx.clearRect(0, 0, width, height);
-                if (Math.random() < 0.4) spawnParticle();
-                for (let i = particles.length-1; i >= 0; i--) {
-                    const p = particles[i];
-                    if (!p.update(mouseX, mouseY)) {
-                        particles.splice(i,1);
-                    } else {
-                        p.draw(ctx);
-                    }
-                }
+                ctx.clearRect(0,0,width,height);
+                if(Math.random()<0.4) spawn();
+                for(let i=particles.length-1; i>=0; i--) if(!particles[i].update(mouseX,mouseY)) particles.splice(i,1); else particles[i].draw(ctx);
                 requestAnimationFrame(animate);
             }
             animate();
